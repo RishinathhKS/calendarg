@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">calendarg</string>
+    <string name="backToMain">Back</string>
+    <string name="eventTitle">Title</string>
+    <string name="eventDesc">Description</string>
+    <string name="eventAttendee">Attendee</string>
+    <string name="eventStart">Start Time</string>
+    <string name="eventEnd">End Time</string>
+    <string name="eventLocation">Location</string>
+
+    <string name="createEventTitle">Title</string>
+    <string name="createEventDesc">Description</string>
+    <string name="createEventAttendee">Attendee</string>
+    <string name="createEventStart">Start At</string>
+    <string name="createEventStartDate">Pick Date</string>
+    <string name="createEventStartTime">Pick Time</string>
+
+    <string name="createEventEnd">End At</string>
+    <string name="createEventEndDate">Pick Date</string>
+    <string name="createEventEndTime">Pick Time</string>
+
+
+    <string name="createEventLocation">Location</string>
+</resources>
