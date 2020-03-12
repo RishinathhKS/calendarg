@@ -17,6 +17,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
@@ -98,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
             LinearLayout activityLayout = (LinearLayout) findViewById(R.id.calenderLayout);
 
             eventListView = (ListView)findViewById(R.id.eventList);
-
+            checkFilePermissions();
             ViewGroup.LayoutParams tlp = new ViewGroup.LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -612,19 +613,40 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
     }
 
     public boolean isdate(String string) {
-        try{
-            if(string.length()==0)
+        try {
+            if (string.length() == 0)
                 return false;
-        }catch(Exception e){
-         return false;
-        }
-        for (int i = 0; i < string.length(); i++) {
-            int ascii = string.charAt(i);
-            if (!((ascii >= 48 && ascii <= 58) || ascii == 45)) {
+
+            for (int i = 0; i < string.length(); i++) {
+                int ascii = string.charAt(i);
+                if (!((ascii >= 48 && ascii <= 58) || ascii == 45)) {
+                    return false;
+                }
+
+
+            }
+            String m = string.substring(5, 7);
+            if (!(Integer.parseInt(m) > 0 && Integer.parseInt(m) < 13)) {
                 return false;
             }
-
+            String d = string.substring(8, 10);
+            if (!(Integer.parseInt(d) > 0 && Integer.parseInt(d) < 32))
+                return false;
+            return true;
+        } catch (Exception e) {
+            return false;
         }
-        return true;
+    }
+    private void checkFilePermissions() {
+        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP){
+            int permissionCheck = this.checkSelfPermission("Manifest.permission.READ_EXTERNAL_STORAGE");
+            permissionCheck += this.checkSelfPermission("Manifest.permission.WRITE_EXTERNAL_STORAGE");
+            if (permissionCheck != 0) {
+
+                this.requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE}, 1001); //Any number
+            }
+        }else{
+            Log.d("tag", "checkBTPermissions: No need to check permissions. SDK version < LOLLIPOP.");
+        }
     }
 }

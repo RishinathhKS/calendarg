@@ -3,18 +3,38 @@ package com.example.calendarg;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import org.apache.commons.io.comparator.LastModifiedFileComparator;
+import org.apache.commons.io.filefilter.FileFileFilter;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellValue;
+import org.apache.poi.ss.usermodel.FormulaEvaluator;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import java.io.File;
+import java.io.FileFilter;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import au.com.bytecode.opencsv.CSVReader;
@@ -32,7 +52,7 @@ public class parsed_calendar extends AppCompatActivity {
         lv=findViewById(R.id.lv);
         db = openOrCreateDatabase("StudentDB", Context.MODE_PRIVATE, null);
         db.execSQL("DROP TABLE IF EXISTS partable");
-        db.execSQL("CREATE TABLE IF NOT EXISTS partable(dat VARCHAR,day VARCHAR,HW VARCHAR,hrsemugpg VARCHAR,fug VARCHAR,integrated VARCHAR,fpg VARCHAR,specifications VARCHAR);");
+        db.execSQL("CREATE TABLE IF NOT EXISTS partable(dat date,day VARCHAR,HW VARCHAR,hrsemugpg VARCHAR,fug VARCHAR,integrated VARCHAR,fpg VARCHAR,specifications VARCHAR);");
 
         readExcelFileFromAssets();
     }
@@ -40,33 +60,52 @@ public class parsed_calendar extends AppCompatActivity {
         String next[] = {};
         List<String[]> list = new ArrayList<String[]>();
         try {
-            CSVReader reader = new CSVReader(new InputStreamReader(getAssets().open("table1.csv")));//Specify asset file name
-            //in open();
-            for(;;) {
-                next = reader.readNext();
-                if(next != null) {
-                    list.add(next);
-                } else {
-                    break;
-                }
-            }
+            SharedPreferences sp = getSharedPreferences("mycredentials",
+                    Context.MODE_PRIVATE);
+            String name = sp.getString("name","NA");
+
+
+            String yourFilePath = Environment.getExternalStorageDirectory() + "/" + "Download" + "/" + name;
+            File filename = new File(yourFilePath);
+            FileInputStream fis = new FileInputStream(filename);
+//            File notes = new File(filePath); //getting the notes dir
+//            List<String> lines = new ArrayList<>();
+//
+//            for (File file : notes.listFiles()) { //iterating the files in the dir
+//                lines.add(file.getName());
+//            }
+
+
+
+            InputStream inputStream = new FileInputStream(filename);
+            XSSFWorkbook workbook = new XSSFWorkbook(inputStream);
+            XSSFSheet sheet = workbook.getSheetAt(0);
+            int rowsCount = sheet.getPhysicalNumberOfRows();
+            FormulaEvaluator formulaEvaluator = workbook.getCreationHelper().createFormulaEvaluator();
+            StringBuilder sb = new StringBuilder();
             categoryList = new ArrayList();
-//            ArrayList<String[]> arlst=new ArrayList<String[]>();
-            val=new String[1000][100];
-            String curmon=" ",curval=" ";
-            for (int i = 0; i < list.size(); i++) {
-                String s="";
-                for (int j=0;j<list.get(i).length;j++) {
-                    String cell = list.get(i)[j];
-                    if(cell==""){
-                        list.get(i)[j]=" ";
+            val = new String[2000][100];
+            String curmon = " ", curval = " ";
+            //outter loop, loops through rows
+            for (int r = 0; r < rowsCount; r++) {
+                Row row = sheet.getRow(r);
+                int cellsCount = row.getPhysicalNumberOfCells();
+                String st = "";
+                //inner loop, loops through columns
+                for (int c = 0; c < cellsCount; c++) {
+                    //handles if there are to many columns on the excel sheet.
+                    String value = getCellAsString(row, c, formulaEvaluator);
+                    String cellInfo = "r:" + r + "; c:" + c + "; v:" + value;
+                    //Log.d(TAG, "readExcelData: Data from row: " + cellInfo);
+                    if (value == "") {
+                        value = " ";
                     }
-                    if(ismon(cell) && j==0) {
-                        curmon = cell;
-                        curval = monthval(cell);
+                    if(ismon(value) && c==0) {
+                        curmon = value;
+                        curval = monthval(value);
                     }
-                    if(j==0){
-                        if(isnum(list.get(i)[j])){
+                    if(c==0){
+                        if(isnum(value)){
                             String year="";
                             for(int a=curmon.length()-4;a<curmon.length();a++){
                                 year+=curmon.charAt(a);
@@ -74,26 +113,27 @@ public class parsed_calendar extends AppCompatActivity {
                             String concat="";
                             concat=concat+year;
                             concat+=curval;
-                            if(cell.length()==1)
-                            concat=concat+"0"+cell;
+                            if(value.length()==1)
+                                concat=concat+"0"+value;
                             else
-                            concat+=cell;
-                            cell=concat;
-                        }
-                    }
-                    s += cell+" ";
-                    val[i][j] =cell;
+                                concat+=value;
+                            value=concat;
+
+                        }}
+
+                    st += value + " ";
+                    val[r][c] = value;
                 }
-                categoryList.add(s);
+                categoryList.add(st);
+                //txt.setText(sb.toString());
             }
-            addtodatabase(val);
-            ArrayAdapter ada=new ArrayAdapter(this,
+            ArrayAdapter ada = new ArrayAdapter(this,
                     android.R.layout.simple_list_item_1,
                     categoryList);
             lv.setAdapter(ada);
+            addtodatabase(val);
 
-
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -127,6 +167,33 @@ public class parsed_calendar extends AppCompatActivity {
         }
 
     }
+    private String getCellAsString(Row row, int c, FormulaEvaluator formulaEvaluator) {
+        String value = "";
+        try {
+            Cell cell = row.getCell(c);
+            CellValue cellValue = formulaEvaluator.evaluate(cell);
+            // value = ""+cellValue.getStringValue();
+            switch (cellValue.getCellType()) {
+                case Cell.CELL_TYPE_BOOLEAN:
+                    value = "" + cellValue.getBooleanValue();
+                    break;
+                case Cell.CELL_TYPE_NUMERIC:
+                    double numericValue = cellValue.getNumberValue();
+                    int v=(int) numericValue;
+                    value = "" + v;
+
+                    break;
+                case Cell.CELL_TYPE_STRING:
+                    value = "" + cellValue.getStringValue();
+                    break;
+                default:
+            }
+        } catch (NullPointerException e) {
+
+        }
+        return value;
+    }
+
 
     public String monthval(String cell) {
         if(cell.toLowerCase().contains("january"))
@@ -157,6 +224,10 @@ public class parsed_calendar extends AppCompatActivity {
     }
 
     public boolean ismon(String cell) {
+        if(cell=="")
+            return false;
+        if(cell.length()<3)
+            return false;
         String[] month={"january","february","march","april","may","june","july","august","september","october","november","december"};
         for(int i=0;i<month.length;i++) {
             if(cell.toLowerCase().contains(month[i])){
@@ -183,14 +254,15 @@ public class parsed_calendar extends AppCompatActivity {
     }
 
     public void sync(View view) {
-        Intent i=new Intent(this,MainActivity.class);
-        setResult(RESULT_OK,i);
-        finish();
+        Intent i=new Intent(this,synccal.class);
+        startActivity(i);
+//        setResult(RESULT_OK,i);
+//        finish();
     }
 
 
     public void showdb(View view) {
-        Cursor c = db.rawQuery("SELECT * FROM partable", null);
+        Cursor c = db.rawQuery("SELECT * FROM partable where dat BETWEEN '2020-01-01' AND '2020-01-31'", null);
         // Checking if no records found 
         if (c.getCount() == 0) {
             showMessage("Error", "No records found");
@@ -214,4 +286,5 @@ public class parsed_calendar extends AppCompatActivity {
         // Displaying all records 
         showMessage("EVENTS", String.valueOf(i)+buffer.toString());
     }
+
 }

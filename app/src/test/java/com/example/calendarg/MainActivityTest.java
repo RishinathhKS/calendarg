@@ -29,8 +29,14 @@ public class MainActivityTest {
     @Test
     public void isdatepositive() {
         MainActivity obj = new MainActivity();
-        Boolean temp = obj.isdate("2019-29-30");
+        Boolean temp = obj.isdate("2019-12-30");
         assertEquals("Test Case Failed",Boolean.TRUE, temp);
+        Boolean temp1 = obj.isdate("2000-01-15");
+        assertEquals("Test Case Failed",Boolean.TRUE, temp1);
+        Boolean temp2 = obj.isdate("2000-02-04");
+        assertEquals("Test Case Failed",Boolean.TRUE, temp2);
+        Boolean temp3 = obj.isdate("1999-11-03");
+        assertEquals("Test Case Failed",Boolean.TRUE, temp3);
     }
     @Test
     public void isdatenegative() {
@@ -38,7 +44,13 @@ public class MainActivityTest {
         Boolean temp = obj.isdate("");
         assertEquals("Test Case Failed",Boolean.FALSE, temp);
         Boolean temp1 = obj.isdate("abcd");
-        assertEquals("Test Case Failed",Boolean.FALSE, temp);
+        assertEquals("Test Case Failed",Boolean.FALSE, temp1);
+        Boolean temp2 = obj.isdate("2019-29-30");
+        assertEquals("Test Case Failed",Boolean.FALSE, temp2);
+        Boolean temp3 = obj.isdate("2019-12-65");
+        assertEquals("Test Case Failed",Boolean.FALSE, temp3);
+        Boolean temp4 = obj.isdate("2019-39-29");
+        assertEquals("Test Case Failed",Boolean.FALSE, temp4);
     }
 
 

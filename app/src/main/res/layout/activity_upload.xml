@@ -7,49 +7,33 @@
     tools:context=".upload"
     android:orientation="vertical">
 
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Step 1 : Convert pdf to excel"
-    android:paddingBottom="10dp"
-    android:paddingTop="10dp"
-    android:textSize="20dp"
-    android:paddingLeft="10dp"
-    android:textColor="@color/colorPrimaryDark"></TextView>
-
-   <Button
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="convert"
-       android:paddingBottom="10dp"
-       android:paddingLeft="10dp"
-       android:paddingTop="10dp"
-       android:onClick="pdf2excl"></Button>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Step 2 : Convert excel to csv"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:textSize="20dp"
-        android:paddingLeft="10dp"
-        android:textColor="@color/colorPrimaryDark"></TextView>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="excel2csv"
-        android:paddingBottom="10dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
         android:paddingLeft="10dp"
         android:paddingTop="10dp"
-        android:onClick="excl2csv"></Button>
+        android:paddingBottom="10dp"
+        android:text="Step 1 : Convert pdf to excel"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20dp"></TextView>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Parse"
-        android:paddingBottom="10dp"
+        android:gravity="center"
+        android:onClick="pdf2excl"
         android:paddingLeft="10dp"
         android:paddingTop="10dp"
-        android:onClick="parse"></Button>
+        android:paddingBottom="10dp"
+        android:text="convert"></Button>
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/downloadpage"></ListView>
 
 </LinearLayout>

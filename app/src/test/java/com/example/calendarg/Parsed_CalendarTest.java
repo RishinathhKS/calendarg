@@ -21,22 +21,41 @@ public class Parsed_CalendarTest {
         assertEquals("Test Case Failed",Boolean.TRUE, temp);
         Boolean temp1 = obj.isnum("12");
         assertEquals("Test Case Failed",Boolean.TRUE, temp1);
+        Boolean temp2 = obj.isnum("01");
+        assertEquals("Test Case Failed",Boolean.TRUE, temp2);
+        Boolean temp3 = obj.isnum("023");
+        assertEquals("Test Case Failed",Boolean.TRUE, temp3);
+
     }
     @Test
-    public void isdatenegative() {
+    public void isnumnegative() {
         parsed_calendar obj = new parsed_calendar();
         Boolean temp = obj.isnum("23ab");
         assertEquals("Test Case Failed",Boolean.FALSE, temp);
         Boolean temp1 = obj.isnum("");
         assertEquals("Test Case Failed",Boolean.FALSE, temp1);
+        Boolean temp2 = obj.isnum("");
+        assertEquals("Test Case Failed",Boolean.FALSE, temp2);
+        Boolean temp3 = obj.isnum("0230");
+        assertEquals("Test Case Failed",Boolean.FALSE, temp3);
     }
     @Test
     public void ismonpositive() {
         parsed_calendar obj = new parsed_calendar();
         Boolean temp = obj.ismon("january");
         assertEquals("Test Case Failed",Boolean.TRUE, temp);
-        Boolean temp1 = obj.ismon("MARCH");
+        Boolean temp1 = obj.ismon("MAR");
         assertEquals("Test Case Failed",Boolean.TRUE, temp1);
+        Boolean temp2 = obj.ismon("decem");
+        assertEquals("Test Case Failed",Boolean.TRUE, temp2);
+        Boolean temp3 = obj.ismon("Feb");
+        assertEquals("Test Case Failed",Boolean.TRUE, temp3);
+        Boolean temp4 = obj.ismon("APRil");
+        assertEquals("Test Case Failed",Boolean.TRUE, temp4);
+        Boolean temp5 = obj.ismon("DeCeMb");
+        assertEquals("Test Case Failed",Boolean.TRUE, temp4);
+
+
     }
 
     @Test
@@ -46,6 +65,12 @@ public class Parsed_CalendarTest {
         assertEquals("Test Case Failed",Boolean.FALSE, temp);
         Boolean temp1 = obj.ismon("");
         assertEquals("Test Case Failed",Boolean.FALSE, temp1);
+        Boolean temp2 = obj.ismon("ju");
+        assertEquals("Test Case Failed",Boolean.FALSE, temp2);
+        Boolean temp3 = obj.ismon("m");
+        assertEquals("Test Case Failed",Boolean.FALSE, temp3);
+        Boolean temp4 = obj.ismon("fsanajdsg");
+        assertEquals("Test Case Failed",Boolean.FALSE, temp4);
     }
 
     @Test
