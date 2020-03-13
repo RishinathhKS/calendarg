@@ -86,7 +86,9 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
     static boolean flag=false;
     static boolean flag1=false;
     final int MYREQUEST = 11;
-
+    Boolean issync=false;
+    String sd;
+    String ed;
 
         @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +98,9 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
                 flag = savedInstanceState.getBoolean("flag");
             }
 
+            SharedPreferences sp = getSharedPreferences("mycredentials",
+                    Context.MODE_PRIVATE);
+            issync = sp.getBoolean("sync",false);
             LinearLayout activityLayout = (LinearLayout) findViewById(R.id.calenderLayout);
 
             eventListView = (ListView)findViewById(R.id.eventList);
@@ -155,6 +160,11 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
                     getApplicationContext(), Arrays.asList(SCOPES))
                     .setBackOff(new ExponentialBackOff());
             getResultsFromApi();
+            if(issync) {
+                sd = sp.getString("startdate","NA");
+                ed = sp.getString("enddate","NA");
+                adddevents(sd, ed);
+            }
         }
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -281,15 +291,15 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
                     getResultsFromApi();
                 }
                 break;
-            case MYREQUEST:
-
-                    if(resultCode == RESULT_OK) {
-                     flag1=true;
-                     Log.d("mainactivity",""+"flag"+flag+"flag1"+flag1);
-                     adddevents();
-                    }
-
-                break;
+//            case MYREQUEST:
+//
+//                    if(resultCode == RESULT_OK) {
+//                     flag1=true;
+//                     Log.d("mainactivity",""+"flag"+flag+"flag1"+flag1);
+//                     adddevents();
+//                    }
+//
+//                break;
     }}
 
 
@@ -575,14 +585,14 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
        // mService.events().insert(calendarId, event1).setSendNotifications(true).execute();
 
     }
-    public void adddevents(){
+    public void adddevents(String stdate,String endate){
         String[] heading={"Date : ","Day: ","","(Hr.Sem UG & PG)","(IUG)","(IINTEGRATED)","(IPG)","(SPECIFICATIONS)"};
         try {
-            Log.d("mainactivity",""+"flag"+flag+"flag1"+flag1);
-            if(flag==false && flag1==true) {
+            //Log.d("mainactivity",""+"flag"+flag+"flag1"+flag1);
+            //if(flag==false && flag1==true) {
                 SQLiteDatabase db;
                 db=openOrCreateDatabase("StudentDB", Context.MODE_PRIVATE, null);
-                Cursor c = db.rawQuery("SELECT * FROM partable", null);
+                Cursor c = db.rawQuery("SELECT * FROM partable WHERE dat BETWEEN '"+stdate+"' AND '"+endate+"'" , null);
                 while (c.moveToNext() && c.getString(0)!=null)
                 {
                     if(c.getString(0)==null){
@@ -594,19 +604,28 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
                         DateTime start = new DateTime(startdate);
                         DateTime end = new DateTime(enddate);
                         String des="";
-                        for(int i=2;i<=7;i++)
-                            if(c.getString(i)=="")
-                            des=c.getString(i);
+                        for(int i=2;i<=7;i++) {
+                            if (c.getString(i).trim() == "")
+                                des = c.getString(i);
                             else
-                                des=c.getString(i)+heading[i];
-                        createEventAsync(des, "fas",des , start, end);
-                        flag=true;
-                        break;
+                                des = c.getString(i) + heading[i];
+
+                            createEventAsync(des, "fas", des, start, end);
+                        }
+                        //flag=true;
+                        //break;
                     }
                 }
+            SharedPreferences sp = getSharedPreferences
+                    ("mycredentials", Context.MODE_PRIVATE);
+            SharedPreferences.Editor edit = sp.edit();
+            edit.putString("startdate","0000-00-00");
+            edit.putString("enddate","0000-00-00");
+            edit.putBoolean("sync",false);
+            edit.commit();
+            issync=false;
 
-
-            }
+            //}
         }catch (Exception e){
             Toast.makeText(this,e.toString(),Toast.LENGTH_SHORT).show();
         }

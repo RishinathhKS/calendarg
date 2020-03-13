@@ -4,6 +4,9 @@ package com.example.calendarg;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +17,7 @@ public class synccal extends AppCompatActivity implements DatePickerDialog.OnDat
     DatePicker stdate,enddate;
     TextView txt;
     String sdate,edate;
+    int smon,emon;
     //@RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState)  {
@@ -22,7 +26,7 @@ public class synccal extends AppCompatActivity implements DatePickerDialog.OnDat
         stdate=findViewById(R.id.startDat);
         enddate=findViewById(R.id.endDat);
         sdate=Integer.toString(stdate.getYear())+"-"+Integer.toString(stdate.getMonth())+"-"+Integer.toString(stdate.getDayOfMonth());
-        edate=Integer.toString(stdate.getYear())+"-"+Integer.toString(stdate.getMonth())+"-"+Integer.toString(stdate.getDayOfMonth());
+        edate=Integer.toString(stdate.getYear())+"-"+Integer.toString(enddate.getMonth())+"-"+Integer.toString(enddate.getDayOfMonth());
         txt=findViewById(R.id.txt);
         txt.setText(sdate+edate);
 //        stdate.setOnDateChangedListener(this);
@@ -37,8 +41,28 @@ public class synccal extends AppCompatActivity implements DatePickerDialog.OnDat
     }
 
     public void syncnow(View view) {
-        sdate=Integer.toString(stdate.getYear())+"-"+Integer.toString(stdate.getMonth())+"-"+Integer.toString(stdate.getDayOfMonth());
-        edate=Integer.toString(enddate.getYear())+"-"+Integer.toString(stdate.getMonth())+"-"+Integer.toString(stdate.getDayOfMonth());
+        smon=stdate.getMonth()+1;
+        emon=enddate.getMonth()+1;
+        String smon2,emon2;
+        smon2=Integer.toString(smon);
+        emon2=Integer.toString(emon);
+        if(smon<10)
+            smon2="0"+Integer.toString(smon);
+        if(emon<10)
+            emon2="0"+Integer.toString(emon);
+
+        sdate=Integer.toString(stdate.getYear())+"-"+smon2+"-"+Integer.toString(stdate.getDayOfMonth());
+        edate=Integer.toString(enddate.getYear())+"-"+emon2+"-"+Integer.toString(enddate.getDayOfMonth());
         txt.setText(sdate+edate);
+        SharedPreferences sp = getSharedPreferences
+                ("mycredentials", Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = sp.edit();
+        edit.putString("startdate",sdate);
+        edit.putString("enddate",edate);
+        edit.putBoolean("sync",true);
+        edit.commit();
+        Intent i=new Intent(this,MainActivity.class);
+        startActivity(i);
+
     }
 }

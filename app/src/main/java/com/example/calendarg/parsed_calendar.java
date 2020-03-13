@@ -100,7 +100,7 @@ public class parsed_calendar extends AppCompatActivity {
                     if (value == "") {
                         value = " ";
                     }
-                    if(ismon(value) && c==0) {
+                    if(ismon(value) ) {
                         curmon = value;
                         curval = monthval(value);
                     }
@@ -224,16 +224,29 @@ public class parsed_calendar extends AppCompatActivity {
     }
 
     public boolean ismon(String cell) {
-        if(cell=="")
+        if(cell==" ")
             return false;
         if(cell.length()<3)
             return false;
+        String y="";
         String[] month={"january","february","march","april","may","june","july","august","september","october","november","december"};
-        for(int i=0;i<month.length;i++) {
-            if(cell.toLowerCase().contains(month[i])){
-                return true;
-            }
+        try{
+        for(int a=cell.length()-4;a<cell.length();a++){
+            y+=cell.charAt(a);
         }
+        if(Integer.parseInt(y)>2000) {
+            if (cell.contains("-")) {
+                for (int i = 0; i < month.length; i++) {
+                    if (cell.toLowerCase().contains(month[i])) {
+                        return true;
+                    }
+                }
+            }
+        }}catch (Exception e){
+            return false;
+        }
+
+
 
         return false;
     }
@@ -262,7 +275,9 @@ public class parsed_calendar extends AppCompatActivity {
 
 
     public void showdb(View view) {
-        Cursor c = db.rawQuery("SELECT * FROM partable where dat BETWEEN '2020-01-01' AND '2020-01-31'", null);
+//        String a="'2020-01-01'";
+//        String b="'2020-01-31'";
+        Cursor c = db.rawQuery("SELECT * FROM partable ", null);
         // Checking if no records found 
         if (c.getCount() == 0) {
             showMessage("Error", "No records found");

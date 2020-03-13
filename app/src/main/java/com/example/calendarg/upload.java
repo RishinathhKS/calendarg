@@ -82,8 +82,8 @@ public class upload extends AppCompatActivity implements
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         TextView txt = (TextView) view;
         parse=txt.getText().toString();
-        //Toast.makeText(getApplicationContext(), "You have selected : " + txt.getText(),
-         //       Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "You have selected : " + parse,
+               Toast.LENGTH_SHORT).show();
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
         alertDialog.setTitle("Confirmation...");
         alertDialog.setMessage("Are you sure you want parse "+parse);
@@ -91,7 +91,7 @@ public class upload extends AppCompatActivity implements
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 //Toast.makeText(getApplicationContext(), "You clicked on YES :   "+which, Toast.LENGTH_SHORT).show();
-                callparsing();
+                callparsing(parse);
             }
         });
 
@@ -112,11 +112,11 @@ public class upload extends AppCompatActivity implements
 
     }
 
-    public void callparsing(){
+    public void callparsing(String pars){
         SharedPreferences sp = getSharedPreferences
                 ("mycredentials", Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = sp.edit();
-        edit.putString("name",parse);
+        edit.putString("name",pars);
         edit.commit();
         Intent j = new Intent(this, parsed_calendar.class);
         startActivity(j);
