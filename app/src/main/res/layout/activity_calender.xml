@@ -9,8 +9,8 @@
 
   <ListView
         android:id="@+id/eventList"
-        android:divider="#92040404"
-        android:dividerHeight="10dp"
+        android:divider="#040404"
+        android:dividerHeight="15dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </ListView>
