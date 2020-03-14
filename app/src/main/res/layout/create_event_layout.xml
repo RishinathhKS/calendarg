@@ -16,65 +16,77 @@
    <LinearLayout
        android:layout_width="match_parent"
        android:weightSum="10"
-       android:background="#394449"
+       android:background="#C8000000"
        android:padding="10dp"
        android:layout_height="wrap_content">
+
        <TextView
-           android:layout_width="0dp"
+           android:layout_width="4dp"
+           android:layout_height="match_parent"
            android:layout_weight="4"
-            android:text="@string/createEventTitle"
-           android:layout_height="wrap_content" />
+           android:gravity="center"
+           android:textColor="#C3979595"
+           android:text="@string/createEventTitle" />
        <EditText
            android:id="@+id/eventTitle"
            android:layout_width="0dp"
            android:inputType="text"
            android:maxLines="1"
            android:lines="1"
+           android:textColor="#EB979595"
            android:layout_weight="6"
            android:imeOptions="actionNext"
            android:layout_height="wrap_content" />
 
    </LinearLayout>
 
-    <LinearLayout
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#6F090909"
+            android:padding="10dp"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="4dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:textColor="#A90E0E0E"
+                android:text="@string/createEventDesc" />
+
+            <EditText
+                android:id="@+id/eventDes"
+                android:layout_width="0dp"
+                android:textColor="#E2191919"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:lines="1"
+                android:maxLines="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
         android:layout_width="match_parent"
         android:weightSum="10"
-        android:background="#dce2e6"
+        android:background="#C8000000"
         android:padding="10dp"
         android:layout_height="wrap_content">
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="4dp"
+            android:layout_height="match_parent"
             android:layout_weight="4"
-            android:text="@string/createEventDesc"
-            android:layout_height="wrap_content" />
-        <EditText
-            android:id="@+id/eventDes"
-            android:layout_width="0dp"
-            android:layout_weight="6"
-            android:lines="1"
-            android:inputType="text"
-            android:maxLines="1"
-            android:imeOptions="actionNext"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:weightSum="10"
-        android:background="#89bcd4"
-        android:padding="10dp"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="4"
+            android:gravity="center"
             android:text="@string/createEventLocation"
-            android:layout_height="wrap_content" />
+            android:textColor="#C3979595" />
         <EditText
             android:maxLines="1"
             android:lines="1"
             android:id="@+id/eventLocation"
             android:layout_width="0dp"
+            android:textColor="#EB979595"
             android:layout_weight="6"
             android:inputType="text"
             android:imeOptions="actionNext"
@@ -85,19 +97,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:weightSum="10"
-        android:background="#dce2e6"
+        android:background="#6F090909"
         android:padding="10dp"
         android:layout_height="wrap_content">
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="4dp"
+            android:layout_height="match_parent"
             android:layout_weight="4"
-            android:text="@string/createEventAttendee"
-            android:layout_height="wrap_content" />
+            android:gravity="center"
+            android:textColor="#A90E0E0E"
+            android:text="@string/createEventAttendee" />
         <EditText
             android:id="@+id/eventAttendee"
             android:layout_width="0dp"
             android:layout_weight="6"
-            android:hint="Place more attendee by comma seprated"
+            android:textColor="#E2191919"
             android:maxLines="1"
             android:lines="1"
             android:inputType="textEmailAddress"
@@ -109,36 +123,43 @@
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:background="#89bcd4"
+        android:background="#C8000000"
         android:padding="10dp"
          android:layout_height="wrap_content">
         <TextView
             android:id="@+id/startAt"
-
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
+            android:textColor="#C3979595"
+            android:padding="3dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textAllCaps="true"
             android:layout_weight="3"
             android:text="@string/createEventStart"
             android:layout_height="wrap_content" />
         <LinearLayout
             android:orientation="vertical"
-
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_weight="7"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
         <DatePicker
             android:id="@+id/startDate"
-            android:layout_width="wrap_content"
+            android:background="#85222222"
+            android:layout_width="match_parent"
             android:calendarViewShown="false"
             android:datePickerMode="spinner"
             android:layout_weight="4"
-
+            android:calendarTextColor="#B23C3C3C"
             android:layout_height="wrap_content" />
         <TimePicker
             android:id="@+id/startTime"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:background="#85222222"
             android:layout_weight="4"
+            android:calendarTextColor="#B23C3C3C"
             android:timePickerMode="spinner"
             android:layout_height="wrap_content" />
             </LinearLayout>
@@ -147,38 +168,48 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:background="#dce2e6"
+        android:orientation="vertical"
+        android:background="#6F090909"
         android:padding="10dp"
         android:layout_height="wrap_content">
         <TextView
             android:id="@+id/endAt"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_weight="3"
+            android:layout_gravity="center"
+            android:padding="3dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#A90E0E0E"
             android:text="@string/createEventEnd"
             android:layout_height="wrap_content" />
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:orientation="vertical"
             android:layout_weight="7"
             android:layout_height="wrap_content">
         <DatePicker
             android:id="@+id/endDate"
-            android:layout_width="wrap_content"
+            android:background="#51706F6F"
+            android:layout_width="match_parent"
             android:calendarViewShown="false"
+            android:calendarTextColor="#E2191919"
             android:datePickerMode="spinner"
             android:layout_height="wrap_content" />
         <TimePicker
             android:id="@+id/endTime"
+            android:background="#51706F6F"
+            android:numbersTextColor="#E2191919"
             android:timePickerMode="spinner"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         </LinearLayout>
     </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:weightSum="10"
-            android:background="#89bcd4"
+            android:background="#C8000000"
             android:padding="10dp"
             android:layout_height="wrap_content">
 
@@ -188,13 +219,17 @@
                 android:layout_width="0dp"
                 android:layout_weight="5"
                 android:text="Create Event"
+                android:textColor="#C8818181"
+                android:background="#5E474646"
                 android:layout_height="wrap_content" />
 
             <Button
                 android:id="@+id/cancelEvent"
                 android:layout_width="0dp"
                 android:layout_weight="5"
+                android:textColor="#C8818181"
                 android:text="Cancel"
+                android:background="#5E474646"
                 android:layout_height="wrap_content" />
 
         </LinearLayout>

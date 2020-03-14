@@ -11,22 +11,25 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="365dp"
-        android:layout_height="231dp"
-        android:layout_marginTop="72dp"
+        android:layout_width="391dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
         android:background="#3E3E3E"
         android:gravity="center_vertical|center_horizontal"
         android:orientation="vertical"
         android:outlineAmbientShadowColor="#4C4B4B"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
+            android:padding="3dp"
             android:background="#79070707"
+            android:gravity="center"
             android:outlineAmbientShadowColor="#4C4B4B"
             android:text="Start Date"
             android:textAlignment="center"
@@ -45,7 +48,7 @@
             <DatePicker
                 android:id="@+id/startDat"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="#7A2E2E2E"
                 android:calendarTextColor="#C8B1B1B1"
                 android:calendarViewShown="false"
@@ -60,7 +63,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="365dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#9ECDCDCD"
         android:gravity="center_vertical|center_horizontal"
@@ -69,15 +72,18 @@
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="0.172">
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#99232323"
+            android:gravity="center"
             android:outlineAmbientShadowColor="#9E707070"
+            android:padding="3dp"
             android:text="End Date"
             android:textAlignment="center"
             android:textAllCaps="true"
