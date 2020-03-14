@@ -131,7 +131,7 @@ public class parsed_calendar extends AppCompatActivity {
                 //txt.setText(sb.toString());
             }
             ArrayAdapter ada = new ArrayAdapter(this,
-                    android.R.layout.simple_list_item_1,
+                    R.layout.custom_simple_list_item_1,
                     categoryList);
             lv.setAdapter(ada);
             addtodatabase(val);
