@@ -30,13 +30,13 @@
         <TextView
             android:id="@+id/eventTitle"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:fontFamily="sans-serif-smallcaps"
             android:gravity="center"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="#A6636363"
-            android:textSize="34dp"
+            android:textSize="20dp"
             android:textStyle="bold" />
 
 
@@ -131,7 +131,7 @@
             android:id="@+id/eventStartLabel"
             android:layout_width="0dp"
             android:layout_weight="3"
-            android:textColor="#fff"
+            android:textColor="#C6FFFFFF"
             android:text="@string/eventStart"
             android:layout_height="wrap_content" />
 
@@ -139,7 +139,7 @@
             android:id="@+id/eventStart"
             android:layout_width="0dp"
             android:layout_weight="7"
-            android:textColor="#fff"
+            android:textColor="#C6FFFFFF"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
