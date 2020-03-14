@@ -23,11 +23,13 @@ public class synccal extends AppCompatActivity implements DatePickerDialog.OnDat
     protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        getSupportActionBar().hide();
+
         stdate=findViewById(R.id.startDat);
         enddate=findViewById(R.id.endDat);
         sdate=Integer.toString(stdate.getYear())+"-"+Integer.toString(stdate.getMonth())+"-"+Integer.toString(stdate.getDayOfMonth());
         edate=Integer.toString(stdate.getYear())+"-"+Integer.toString(enddate.getMonth())+"-"+Integer.toString(enddate.getDayOfMonth());
-        txt=findViewById(R.id.txt);
         txt.setText(sdate+edate);
 //        stdate.setOnDateChangedListener(this);
 //        enddate.setOnDateChangedListener(this);

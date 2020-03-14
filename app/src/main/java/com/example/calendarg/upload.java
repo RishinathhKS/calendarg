@@ -32,6 +32,9 @@ public class upload extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload);
+
+        getSupportActionBar().hide();
+
         download=findViewById(R.id.downloadpage);
         String filePath = Environment.getExternalStorageDirectory() + "/" + "Download/" ;
         File dir = new File(filePath);

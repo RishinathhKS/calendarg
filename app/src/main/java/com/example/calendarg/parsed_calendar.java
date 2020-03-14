@@ -49,6 +49,9 @@ public class parsed_calendar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parsed_calendar);
+
+        getSupportActionBar().hide();
+
         lv=findViewById(R.id.lv);
         db = openOrCreateDatabase("StudentDB", Context.MODE_PRIVATE, null);
         db.execSQL("DROP TABLE IF EXISTS partable");
