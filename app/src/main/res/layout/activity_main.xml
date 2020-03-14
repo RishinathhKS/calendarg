@@ -12,7 +12,7 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="391dp"
-        android:layout_height="282dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="96dp"
         android:background="#3E3E3E"
         android:gravity="center_vertical|center_horizontal"
@@ -27,6 +27,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="30dp"
+            android:padding="3dp"
             android:background="#79070707"
             android:gravity="center"
             android:outlineAmbientShadowColor="#4C4B4B"
@@ -63,7 +64,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="268dp"
+        android:layout_height="wrap_content"
         android:background="#9ECDCDCD"
         android:gravity="center_vertical|center_horizontal"
         android:orientation="vertical"
@@ -82,6 +83,7 @@
             android:background="#99232323"
             android:gravity="center"
             android:outlineAmbientShadowColor="#9E707070"
+            android:padding="3dp"
             android:text="End Date"
             android:textAlignment="center"
             android:textAllCaps="true"
