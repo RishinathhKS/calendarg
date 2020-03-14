@@ -9,7 +9,7 @@
 
   <ListView
         android:id="@+id/eventList"
-        android:divider="#d9d9d9"
+        android:divider="#92353535"
         android:dividerHeight="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
