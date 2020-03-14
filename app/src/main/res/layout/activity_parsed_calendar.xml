@@ -10,7 +10,6 @@
     >
     <LinearLayout
         android:padding="5dp"
-        android:paddingBottom="40dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginTop="3dp"
@@ -19,25 +18,26 @@
         android:orientation="horizontal">
 
         <Button
-            android:layout_width="324dp"
+            android:layout_width="297dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="#2DFFFFFF"
             android:gravity="center"
+            android:paddingRight="10dp"
             android:onClick="sync"
             android:text="sync with google calendar"
             android:textColor="#CDCDCD"></Button>
 
         <Button
-            android:layout_width="52dp"
+            android:layout_width="69dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:layout_marginLeft="3dp"
             android:layout_marginRight="3dp"
             android:background="#656565"
-            android:textColor="#B2000000"
             android:onClick="showdb"
-            android:text="db"></Button>
+            android:text="db"
+            android:textColor="#B2000000"></Button>
     </LinearLayout>
 
 
@@ -45,7 +45,7 @@
         android:id="@+id/lv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="3dp"
         android:layout_marginLeft="11dp"
         android:layout_marginRight="11dp"
         android:background="#1BFFFFFF"
