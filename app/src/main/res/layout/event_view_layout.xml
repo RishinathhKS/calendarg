@@ -5,20 +5,21 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/calenderLayout"
-    android:background="#1E5A7F"
+    android:background="#C11C1C1C"
     >
     <LinearLayout
         android:layout_width="match_parent"
         android:weightSum="10"
         android:padding="5dp"
         android:orientation="horizontal"
+        android:background="#92040404"
         android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/eventTitleLabel"
             android:layout_width="0dp"
             android:layout_weight="3"
-            android:textColor="#fff"
+            android:textColor="#989898"
             android:text="@string/eventTitle"
             android:layout_height="wrap_content" />
 
@@ -26,7 +27,6 @@
             android:id="@+id/eventTitle"
             android:layout_width="0dp"
             android:layout_weight="7"
-            android:textColor="#fff"
             android:layout_height="wrap_content" />
 
 
@@ -37,6 +37,7 @@
         android:weightSum="10"
         android:padding="5dp"
         android:orientation="horizontal"
+        android:background="#92353535"
         android:layout_height="wrap_content">
 
         <TextView
@@ -62,6 +63,7 @@
         android:weightSum="10"
         android:textColor="#fff"
         android:padding="5dp"
+        android:background="#92353535"
         android:orientation="horizontal"
         android:layout_height="wrap_content">
 
@@ -86,6 +88,7 @@
         android:layout_width="match_parent"
         android:weightSum="10"
         android:padding="5dp"
+        android:background="#92353535"
         android:orientation="horizontal"
         android:layout_height="wrap_content">
 
@@ -110,6 +113,7 @@
         android:layout_width="match_parent"
         android:weightSum="10"
         android:padding="5dp"
+        android:background="#92353535"
         android:orientation="horizontal"
         android:layout_height="wrap_content">
 
@@ -134,7 +138,7 @@
         android:layout_width="match_parent"
         android:weightSum="10"
         android:padding="5dp"
-
+        android:background="#92353535"
         android:orientation="horizontal"
         android:layout_height="wrap_content">
 
