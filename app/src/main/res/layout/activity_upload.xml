@@ -34,9 +34,9 @@
             android:gravity="center"
             android:onClick="pdf2excl"
             android:layout_marginRight="10dp"
-            android:textColor="#E1050505"
+            android:textColor="#B4050505"
             android:text="convert"
-            android:background="#4F939191"
+            android:background="#7E939191"
             android:outlineAmbientShadowColor="#4F939191"
             android:textAlignment="center"></Button>
 
