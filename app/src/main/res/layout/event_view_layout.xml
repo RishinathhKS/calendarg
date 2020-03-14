@@ -28,13 +28,17 @@
             android:textColor="#989898" />-->
 
         <TextView
-            android:gravity="center"
-            android:textAlignment="center"
-            android:textAllCaps="true"
             android:id="@+id/eventTitle"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_weight="7" />
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textAppearance="#C9FFFFFF"
+            android:textColor="#B2707070"
+            android:textSize="34dp"
+            android:textStyle="bold" />
 
 
     </LinearLayout>

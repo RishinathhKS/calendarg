@@ -24,7 +24,7 @@ public class synccal extends AppCompatActivity implements DatePickerDialog.OnDat
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportActionBar().hide();
+        /*getSupportActionBar().hide();*/
 
         stdate=findViewById(R.id.startDat);
         enddate=findViewById(R.id.endDat);
