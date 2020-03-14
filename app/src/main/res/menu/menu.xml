@@ -3,7 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/ackcal" android:title="UPLOAD"
         android:orderInCategory="100" app:showAsAction="never" />
-    <item android:id="@+id/parsed_doc" android:title="PARSED DOC"
-        android:orderInCategory="100" app:showAsAction="never" />
+    <item
+        android:id="@+id/parsed_doc"
+        android:orderInCategory="100"
+        android:title="SYNC EVENTS"
+        app:showAsAction="never" />
 
 </menu>
