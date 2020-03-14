@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:weightSum="10"
         android:padding="5dp"
+        android:outlineAmbientShadowColor="#92040404"
         android:orientation="horizontal"
         android:background="#92040404"
         android:layout_height="wrap_content">
@@ -30,13 +31,13 @@
         <TextView
             android:id="@+id/eventTitle"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:fontFamily="sans-serif-smallcaps"
             android:gravity="center"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="#A6636363"
-            android:textSize="34dp"
+            android:textSize="20dp"
             android:textStyle="bold" />
 
 
@@ -47,6 +48,7 @@
         android:weightSum="10"
         android:padding="5dp"
         android:orientation="horizontal"
+        android:outlineAmbientShadowColor="#92353535"
         android:background="#92353535"
         android:layout_height="wrap_content">
 
@@ -54,15 +56,17 @@
             android:id="@+id/eventDescLabel"
             android:layout_width="0dp"
             android:layout_weight="3"
-            android:textColor="#fff"
+            android:textColor="#C6FFFFFF"
             android:text="@string/eventDesc"
+            android:textSize="8dp"
             android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/eventDes"
             android:layout_width="0dp"
             android:layout_weight="7"
-            android:textColor="#fff"
+            android:textSize="8dp"
+            android:textColor="#C6FFFFFF"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
@@ -72,6 +76,7 @@
         android:layout_width="match_parent"
         android:weightSum="10"
         android:textColor="#fff"
+        android:outlineAmbientShadowColor="#92353535"
         android:padding="5dp"
         android:background="#92353535"
         android:orientation="horizontal"
@@ -80,16 +85,18 @@
         <TextView
             android:id="@+id/eventAttendeeLabel"
             android:layout_width="0dp"
-            android:textColor="#fff"
+            android:textColor="#C6FFFFFF"
             android:layout_weight="3"
+            android:textSize="8dp"
             android:text="@string/eventAttendee"
             android:layout_height="wrap_content" />
 
         <TextView
-            android:textColor="#fff"
+            android:textColor="#C6FFFFFF"
             android:id="@+id/eventAttendee"
             android:layout_width="0dp"
             android:layout_weight="7"
+            android:textSize="8dp"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
@@ -106,14 +113,16 @@
             android:id="@+id/eventLocationLabel"
             android:layout_width="0dp"
             android:layout_weight="3"
-            android:textColor="#fff"
+            android:textColor="#C6FFFFFF"
+            android:textSize="8dp"
             android:text="@string/eventLocation"
             android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/eventLocation"
             android:layout_width="0dp"
-            android:textColor="#fff"
+            android:textColor="#C6FFFFFF"
+            android:textSize="8dp"
             android:layout_weight="7"
             android:layout_height="wrap_content" />
 
@@ -125,13 +134,15 @@
         android:padding="5dp"
         android:background="#92353535"
         android:orientation="horizontal"
+        android:outlineAmbientShadowColor="#92353535"
         android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/eventStartLabel"
             android:layout_width="0dp"
             android:layout_weight="3"
-            android:textColor="#fff"
+            android:textColor="#C6FFFFFF"
+            android:textSize="8dp"
             android:text="@string/eventStart"
             android:layout_height="wrap_content" />
 
@@ -139,7 +150,8 @@
             android:id="@+id/eventStart"
             android:layout_width="0dp"
             android:layout_weight="7"
-            android:textColor="#fff"
+            android:textColor="#C6FFFFFF"
+            android:textSize="8dp"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
@@ -150,13 +162,15 @@
         android:padding="5dp"
         android:background="#92353535"
         android:orientation="horizontal"
+        android:outlineAmbientShadowColor="#92353535"
         android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/eventEndLabel"
             android:layout_width="0dp"
-            android:textColor="#fff"
+            android:textColor="#C6FFFFFF"
             android:layout_weight="3"
+            android:textSize="8dp"
             android:text="@string/eventEnd"
             android:layout_height="wrap_content" />
 
@@ -164,7 +178,8 @@
             android:id="@+id/eventEnd"
             android:layout_width="0dp"
             android:layout_weight="7"
-            android:textColor="#fff"
+            android:textSize="8dp"
+            android:textColor="#C6FFFFFF"
             android:layout_height="wrap_content" />
 
     </LinearLayout>

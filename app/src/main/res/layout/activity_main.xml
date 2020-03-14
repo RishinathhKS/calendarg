@@ -11,23 +11,24 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
-        android:gravity="center_vertical"
-        android:outlineAmbientShadowColor="#4C4B4B"
+        android:layout_width="365dp"
+        android:layout_height="231dp"
+        android:layout_marginTop="72dp"
         android:background="#3E3E3E"
+        android:gravity="center_vertical|center_horizontal"
         android:orientation="vertical"
+        android:outlineAmbientShadowColor="#4C4B4B"
         android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Start Date"
             android:background="#79070707"
             android:outlineAmbientShadowColor="#4C4B4B"
+            android:text="Start Date"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="#CDCDCD"
@@ -36,22 +37,22 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:outlineAmbientShadowColor="#4C4B4B"
             android:layout_gravity="center"
             android:layout_weight="7"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:outlineAmbientShadowColor="#4C4B4B">
 
             <DatePicker
                 android:id="@+id/startDat"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="#7A2E2E2E"
-                android:scrollbarStyle="outsideInset"
-                android:yearListSelectorColor="#B1B1B1"
-                android:calendarTextColor="#B1B1B1"
-                android:outlineSpotShadowColor="#4C4B4B"
+                android:calendarTextColor="#C8B1B1B1"
                 android:calendarViewShown="false"
-                android:datePickerMode="spinner" />
+                android:datePickerMode="spinner"
+                android:outlineSpotShadowColor="#4C4B4B"
+                android:scrollbarStyle="outsideInset"
+                android:yearListSelectorColor="#B1B1B1" />
 
         </LinearLayout>
 
@@ -59,25 +60,26 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
+        android:layout_width="365dp"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:outlineAmbientShadowColor="#9ECDCDCD"
         android:background="#9ECDCDCD"
+        android:gravity="center_vertical|center_horizontal"
         android:orientation="vertical"
+        android:outlineAmbientShadowColor="#9ECDCDCD"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.172">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="End Date"
-            android:textAlignment="center"
             android:background="#99232323"
             android:outlineAmbientShadowColor="#9E707070"
+            android:text="End Date"
+            android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="#9EFDFDFD"
             android:textStyle="bold" />
@@ -93,13 +95,13 @@
                 android:id="@+id/endDat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:calendarViewShown="false"
-                android:scrollbarStyle="insideInset"
-                android:yearListSelectorColor="#B1B1B1"
-                android:calendarTextColor="#B1B1B1"
-                android:outlineAmbientShadowColor="#9E707070"
                 android:background="#9E535353"
-                android:datePickerMode="spinner" />
+                android:calendarTextColor="#C8B1B1B1"
+                android:calendarViewShown="false"
+                android:datePickerMode="spinner"
+                android:outlineAmbientShadowColor="#9E707070"
+                android:scrollbarStyle="insideInset"
+                android:yearListSelectorColor="#B1B1B1" />
 
         </LinearLayout>
     </LinearLayout>
@@ -108,7 +110,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@android:drawable/screen_background_dark_transparent"
+        android:background="#1E4A4A4A"
+        android:outlineAmbientShadowColor="#9A5C5C5C"
         android:onClick="syncnow"
         android:text="SYNC NOW"
         android:textColor="#A8FFFFFF"

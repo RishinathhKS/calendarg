@@ -24,13 +24,12 @@ public class synccal extends AppCompatActivity implements DatePickerDialog.OnDat
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*getSupportActionBar().hide();*/
+        getSupportActionBar().hide();
 
         stdate=findViewById(R.id.startDat);
         enddate=findViewById(R.id.endDat);
         sdate=Integer.toString(stdate.getYear())+"-"+Integer.toString(stdate.getMonth())+"-"+Integer.toString(stdate.getDayOfMonth());
         edate=Integer.toString(stdate.getYear())+"-"+Integer.toString(enddate.getMonth())+"-"+Integer.toString(enddate.getDayOfMonth());
-        txt.setText(sdate+edate);
 //        stdate.setOnDateChangedListener(this);
 //        enddate.setOnDateChangedListener(this);
     }
@@ -39,7 +38,6 @@ public class synccal extends AppCompatActivity implements DatePickerDialog.OnDat
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         edate=Integer.toString(year)+"-"+Integer.toString(month)+"-"+Integer.toString(dayOfMonth);
-        txt.setText(edate);
     }
 
     public void syncnow(View view) {
@@ -55,7 +53,6 @@ public class synccal extends AppCompatActivity implements DatePickerDialog.OnDat
 
         sdate=Integer.toString(stdate.getYear())+"-"+smon2+"-"+Integer.toString(stdate.getDayOfMonth());
         edate=Integer.toString(enddate.getYear())+"-"+emon2+"-"+Integer.toString(enddate.getDayOfMonth());
-        txt.setText(sdate+edate);
         SharedPreferences sp = getSharedPreferences
                 ("mycredentials", Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = sp.edit();
