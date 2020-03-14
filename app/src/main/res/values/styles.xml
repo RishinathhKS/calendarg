@@ -3,9 +3,9 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.DayNight">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#121212</item>
-        <item name="colorPrimaryDark">#000000</item>
-        <item name="colorAccent">#60515050</item>
+        <item name="colorPrimary">#000000</item>
+        <item name="colorPrimaryDark">#C6000000</item>
+        <item name="colorAccent">#60090909</item>
     </style>
 
 </resources>
