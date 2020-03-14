@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
     android:id="@+id/createEventLayout"
     >
     <ScrollView
@@ -17,7 +16,7 @@
    <LinearLayout
        android:layout_width="match_parent"
        android:weightSum="10"
-       android:background="#89bcd4"
+       android:background="#394449"
        android:padding="10dp"
        android:layout_height="wrap_content">
        <TextView
