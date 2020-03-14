@@ -4,19 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#9E000000"
+    android:background="#E1050505"
     tools:context=".upload"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="5dp"
+        android:background="#00050505"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:background="#0CFFFFFF"
+            android:background=""
             android:gravity="center"
             android:padding="10dp"
             android:text="Convert pdf to excel : "
@@ -30,14 +34,18 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:onClick="pdf2excl"
-            android:textColor="#EBBFBFBF"
+            android:layout_marginRight="10dp"
+            android:textColor="#E1050505"
             android:text="convert"
-            android:background="#48AFAFAF"
+            android:background="#4F939191"
+            android:outlineAmbientShadowColor="#4F939191"
             android:textAlignment="center"></Button>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <ListView
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/downloadpage"

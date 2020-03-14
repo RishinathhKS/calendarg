@@ -45,7 +45,7 @@ public class upload extends AppCompatActivity implements
             theNamesOfFiles[i] = filelist[i].getName();
         }
         ArrayAdapter ada = new ArrayAdapter(this,
-                android.R.layout.simple_list_item_1,
+                R.layout.custom_simple_list_item_1,
                 theNamesOfFiles);
         download.setAdapter(ada);
         download.setOnItemClickListener(this);

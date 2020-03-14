@@ -11,9 +11,9 @@
         android:layout_width="match_parent"
         android:weightSum="10"
         android:padding="40dp"
-        android:outlineAmbientShadowColor="#92040404"
+        android:outlineAmbientShadowColor="#040404"
         android:orientation="horizontal"
-        android:background="#92040404"
+        android:background="#D2040404"
         android:layout_height="wrap_content">
 
         <!--<TextView
@@ -30,13 +30,14 @@
 
         <TextView
             android:id="@+id/eventTitle"
+            android:text="ff"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-smallcaps"
             android:gravity="center"
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="#A6636363"
+            android:textColor="#A6D5D5D5"
             android:textSize="30dp"
             android:textStyle="bold" />
 
