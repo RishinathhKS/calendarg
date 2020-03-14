@@ -11,6 +11,8 @@
     <LinearLayout
         android:padding="5dp"
         android:paddingBottom="40dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:layout_marginTop="3dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,12 +42,15 @@
 
 
     <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginRight="11dp"
         android:background="#1BFFFFFF"
         android:descendantFocusability="beforeDescendants"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"></ListView>
 
 </LinearLayout>
