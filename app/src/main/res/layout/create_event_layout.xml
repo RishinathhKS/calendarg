@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#C84C4C4C"
     android:orientation="vertical"
     android:id="@+id/createEventLayout"
     >
@@ -12,6 +13,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
+        android:padding="20dp"
+        android:background="#C8000000"
         android:layout_height="wrap_content">
    <LinearLayout
        android:layout_width="match_parent"
@@ -25,7 +28,7 @@
            android:layout_height="match_parent"
            android:layout_weight="4"
            android:gravity="center"
-           android:textColor="#C3979595"
+           android:textColor="#A9A6A6A6"
            android:text="@string/createEventTitle" />
        <EditText
            android:id="@+id/eventTitle"
@@ -52,13 +55,13 @@
                 android:layout_height="match_parent"
                 android:layout_weight="4"
                 android:gravity="center"
-                android:textColor="#A90E0E0E"
+                android:textColor="#A9A6A6A6"
                 android:text="@string/createEventDesc" />
 
             <EditText
                 android:id="@+id/eventDes"
                 android:layout_width="0dp"
-                android:textColor="#E2191919"
+                android:textColor="#A9A6A6A6"
                 android:layout_height="wrap_content"
                 android:layout_weight="6"
                 android:imeOptions="actionNext"
@@ -80,13 +83,13 @@
             android:layout_weight="4"
             android:gravity="center"
             android:text="@string/createEventLocation"
-            android:textColor="#C3979595" />
+            android:textColor="#A9A6A6A6" />
         <EditText
             android:maxLines="1"
             android:lines="1"
             android:id="@+id/eventLocation"
             android:layout_width="0dp"
-            android:textColor="#EB979595"
+            android:textColor="#A9A6A6A6"
             android:layout_weight="6"
             android:inputType="text"
             android:imeOptions="actionNext"
@@ -105,13 +108,13 @@
             android:layout_height="match_parent"
             android:layout_weight="4"
             android:gravity="center"
-            android:textColor="#A90E0E0E"
+            android:textColor="#A9A6A6A6"
             android:text="@string/createEventAttendee" />
         <EditText
             android:id="@+id/eventAttendee"
             android:layout_width="0dp"
             android:layout_weight="6"
-            android:textColor="#E2191919"
+            android:textColor="#A9A6A6A6"
             android:maxLines="1"
             android:lines="1"
             android:inputType="textEmailAddress"
@@ -131,7 +134,7 @@
         <TextView
             android:id="@+id/startAt"
             android:layout_width="match_parent"
-            android:textColor="#C3979595"
+            android:textColor="#A9A6A6A6"
             android:padding="3dp"
             android:layout_gravity="center"
             android:gravity="center"
@@ -152,14 +155,14 @@
             android:calendarViewShown="false"
             android:datePickerMode="spinner"
             android:layout_weight="4"
-            android:calendarTextColor="#B23C3C3C"
+            android:calendarTextColor="#B2717171"
             android:layout_height="wrap_content" />
         <TimePicker
             android:id="@+id/startTime"
             android:layout_width="match_parent"
             android:background="#85222222"
             android:layout_weight="4"
-            android:calendarTextColor="#B23C3C3C"
+            android:calendarTextColor="#B2717171"
             android:timePickerMode="spinner"
             android:layout_height="wrap_content" />
             </LinearLayout>
@@ -181,7 +184,7 @@
             android:gravity="center"
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="#A90E0E0E"
+            android:textColor="#A9A6A6A6"
             android:text="@string/createEventEnd"
             android:layout_height="wrap_content" />
         <LinearLayout
