@@ -9,10 +9,12 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:background="#89bcd4"
+        android:background="#787878"
         android:padding="10dp"
         android:layout_height="wrap_content">
         <TextView
+            android:textColor="#CDCDCD"
+            android:textStyle="bold"
             android:layout_width="0dp"
             android:layout_weight="3"
             android:text="Start Date"
@@ -36,26 +38,31 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#C6C6C6"
         android:orientation="horizontal"
-        android:background="#dce2e6"
-        android:padding="10dp"
-        android:layout_height="wrap_content">
+        android:padding="10dp">
+
         <TextView
+            android:textColor="#555555"
+            android:textStyle="bold"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="3"
-            android:text="End Date"
-            android:layout_height="wrap_content" />
+            android:text="End Date" />
+
         <LinearLayout
             android:layout_width="0dp"
-            android:orientation="vertical"
+            android:layout_height="wrap_content"
             android:layout_weight="7"
-            android:layout_height="wrap_content">
+            android:orientation="vertical">
+
             <DatePicker
                 android:id="@+id/endDat"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:calendarViewShown="false"
-                android:datePickerMode="spinner"
-                android:layout_height="wrap_content" />
+                android:datePickerMode="spinner" />
 
         </LinearLayout>
     </LinearLayout>
