@@ -32,6 +32,9 @@ public class upload extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload);
+
+        getSupportActionBar().hide();
+
         download=findViewById(R.id.downloadpage);
         String filePath = Environment.getExternalStorageDirectory() + "/" + "Download/" ;
         File dir = new File(filePath);
@@ -42,7 +45,7 @@ public class upload extends AppCompatActivity implements
             theNamesOfFiles[i] = filelist[i].getName();
         }
         ArrayAdapter ada = new ArrayAdapter(this,
-                android.R.layout.simple_list_item_1,
+                R.layout.custom_simple_list_item_1,
                 theNamesOfFiles);
         download.setAdapter(ada);
         download.setOnItemClickListener(this);

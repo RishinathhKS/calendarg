@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/ackcal" android:title="upload Academic calendar"
+    <item android:id="@+id/ackcal" android:title="UPLOAD"
         android:orderInCategory="100" app:showAsAction="never" />
-    <item android:id="@+id/parsed_doc" android:title="Parsed Document"
-        android:orderInCategory="100" app:showAsAction="never" />
+    <item
+        android:id="@+id/parsed_doc"
+        android:orderInCategory="100"
+        android:title="SYNC EVENTS"
+        app:showAsAction="never" />
+    '
+    <item
+        android:id="@+id/help_guide"
+        android:orderInCategory="100"
+        android:title="USERGUIDE"
+        app:showAsAction="never" />
 
 </menu>

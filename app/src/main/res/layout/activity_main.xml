@@ -1,61 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_gravity="center_vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".synccal"
+    android:background="#F2000000"
     android:orientation="vertical">
+
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:background="#89bcd4"
-        android:padding="10dp"
-        android:layout_height="wrap_content">
+        android:id="@+id/linearLayout2"
+        android:layout_width="391dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:background="#11C1C0C0"
+        android:gravity="center_vertical|center_horizontal"
+        android:orientation="vertical"
+        android:outlineAmbientShadowColor="#9E9C9C9C"
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <TextView
-            android:layout_width="0dp"
-            android:layout_weight="3"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="#79070707"
+            android:gravity="center"
+            android:outlineAmbientShadowColor="#4C4B4B"
+            android:padding="5dp"
             android:text="Start Date"
-            android:layout_height="wrap_content" />
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#CDCDCD"
+            android:textStyle="bold" />
+
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="7"
-            android:layout_height="wrap_content">
+            android:orientation="vertical"
+            android:outlineAmbientShadowColor="#4C4B4B">
+
             <DatePicker
                 android:id="@+id/startDat"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#6F616161"
+                android:calendarTextColor="#C8232323"
                 android:calendarViewShown="false"
                 android:datePickerMode="spinner"
-                android:layout_weight="4"
-                android:layout_height="wrap_content" />
+                android:outlineSpotShadowColor="#4C4B4B"
+                android:padding="10dp"
+                android:scrollbarStyle="outsideInset"
+                android:yearListSelectorColor="#B1B1B1" />
 
         </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:background="#dce2e6"
-        android:padding="10dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#11C1C0C0"
+        android:gravity="center_vertical|center_horizontal"
+        android:orientation="vertical"
+        android:outlineAmbientShadowColor="#9E9C9C9C"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.0">
+
         <TextView
-            android:layout_width="0dp"
-            android:layout_weight="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#99232323"
+            android:gravity="center"
+            android:outlineAmbientShadowColor="#9E707070"
+            android:padding="5dp"
             android:text="End Date"
-            android:layout_height="wrap_content" />
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#9EFDFDFD"
+            android:textStyle="bold" />
+
         <LinearLayout
-            android:layout_width="0dp"
-            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="7"
-            android:layout_height="wrap_content">
+            android:orientation="vertical">
+
             <DatePicker
                 android:id="@+id/endDat"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#9E535353"
+                android:calendarTextColor="#C8B1B1B1"
                 android:calendarViewShown="false"
                 android:datePickerMode="spinner"
-                android:layout_height="wrap_content" />
+                android:outlineAmbientShadowColor="#9E707070"
+                android:padding="10dp"
+                android:scrollbarStyle="insideInset"
+                android:yearListSelectorColor="#B1B1B1" />
 
         </LinearLayout>
     </LinearLayout>
@@ -63,14 +117,15 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SYNC NOW"
+        android:layout_gravity="center"
+        android:background="#1E4A4A4A"
+        android:outlineAmbientShadowColor="#9A5C5C5C"
         android:onClick="syncnow"
-        android:layout_gravity="center"></Button>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txt"
-        android:text="output"></TextView>
-
-
-</LinearLayout>
+        android:text="SYNC NOW"
+        android:textColor="#A8FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.464"></Button>
+</androidx.constraintlayout.widget.ConstraintLayout>

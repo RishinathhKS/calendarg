@@ -2,9 +2,11 @@ package com.example.calendarg;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.PopupMenu;
 
 import android.Manifest;
 import android.accounts.AccountManager;
+import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -65,7 +67,7 @@ import au.com.bytecode.opencsv.CSVReader;
 import pub.devrel.easypermissions.AfterPermissionGranted;
 import pub.devrel.easypermissions.EasyPermissions;
 
-public class MainActivity extends AppCompatActivity implements EasyPermissions.PermissionCallbacks{
+public class MainActivity extends AppCompatActivity implements EasyPermissions.PermissionCallbacks {
 
     GoogleAccountCredential mCredential;
     private TextView mOutputText;
@@ -94,6 +96,12 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calender);
+
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+            getSupportActionBar().setDisplayShowCustomEnabled(true);
+            getSupportActionBar().setCustomView(R.layout.custom_action_bar_layout);
+            View view =getSupportActionBar().getCustomView();
+
             if (savedInstanceState != null) {
                 flag = savedInstanceState.getBoolean("flag");
             }
@@ -108,6 +116,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
             ViewGroup.LayoutParams tlp = new ViewGroup.LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT);
+
             ImageButton back = (ImageButton) findViewById(R.id.backToMain);
             back.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -181,8 +190,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         }}
 
             @Override
-    public boolean onCreateOptionsMenu
-            (Menu menu) {
+    public boolean onCreateOptionsMenu (Menu menu) {
         getMenuInflater().inflate
                 (R.menu.menu, menu);
 
@@ -191,8 +199,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
 
 
     @Override
-    public boolean onOptionsItemSelected
-            (MenuItem item) {
+    public boolean onOptionsItemSelected (MenuItem item) {
         switch(item.getItemId())
         {
             case R.id.ackcal:
@@ -201,23 +208,18 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
                 startActivity(inte);break;
 
             case R.id.parsed_doc:
-
                 Intent i = new Intent(this,
                         parsed_calendar.class);
-                startActivityForResult(i,MYREQUEST);
+                startActivityForResult(i,MYREQUEST);break;
 
-
-
+            case R.id.help_guide:
+                Intent ih = new Intent(this, user_guide.class);
+                startActivity(ih);break;
         }
-
-
         return true;
     }
 
-
-
-
-            private void getResultsFromApi() {
+    private void getResultsFromApi() {
         if (! isGooglePlayServicesAvailable()) {
             acquireGooglePlayServices();
         } else if (mCredential.getSelectedAccountName() == null) {
@@ -228,7 +230,6 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
             new MakeRequestTask(mCredential).execute();
         }
     }
-
 
     @AfterPermissionGranted(REQUEST_PERMISSION_GET_ACCOUNTS)
     private void chooseAccount() {

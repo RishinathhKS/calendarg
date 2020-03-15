@@ -5,29 +5,41 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/calenderLayout"
-    android:background="#1E5A7F"
+    android:background="#C11C1C1C"
     >
     <LinearLayout
         android:layout_width="match_parent"
         android:weightSum="10"
-        android:padding="5dp"
+        android:padding="40dp"
+        android:outlineAmbientShadowColor="#040404"
         android:orientation="horizontal"
+        android:background="#D2040404"
         android:layout_height="wrap_content">
 
-        <TextView
+        <!--<TextView
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textAllCaps="true"
             android:id="@+id/eventTitleLabel"
             android:layout_width="0dp"
+            android:layout_height="50dp"
             android:layout_weight="3"
-            android:textColor="#fff"
             android:text="@string/eventTitle"
-            android:layout_height="wrap_content" />
+            android:textColor="#989898" />-->
 
         <TextView
             android:id="@+id/eventTitle"
-            android:layout_width="0dp"
-            android:layout_weight="7"
-            android:textColor="#fff"
-            android:layout_height="wrap_content" />
+            android:text="ff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#A6D5D5D5"
+            android:textSize="30dp"
+            android:textStyle="bold" />
 
 
     </LinearLayout>
@@ -37,21 +49,27 @@
         android:weightSum="10"
         android:padding="5dp"
         android:orientation="horizontal"
+        android:outlineAmbientShadowColor="#92353535"
+        android:background="#92353535"
         android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/eventDescLabel"
             android:layout_width="0dp"
             android:layout_weight="3"
-            android:textColor="#fff"
+            android:textColor="#C6FFFFFF"
             android:text="@string/eventDesc"
+            android:padding="10dp"
+            android:textSize="15dp"
             android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/eventDes"
             android:layout_width="0dp"
             android:layout_weight="7"
-            android:textColor="#fff"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:textColor="#C6FFFFFF"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
@@ -61,23 +79,29 @@
         android:layout_width="match_parent"
         android:weightSum="10"
         android:textColor="#fff"
+        android:outlineAmbientShadowColor="#92353535"
         android:padding="5dp"
+        android:background="#92353535"
         android:orientation="horizontal"
         android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/eventAttendeeLabel"
             android:layout_width="0dp"
-            android:textColor="#fff"
+            android:textColor="#C6FFFFFF"
+            android:padding="10dp"
             android:layout_weight="3"
+            android:textSize="15dp"
             android:text="@string/eventAttendee"
             android:layout_height="wrap_content" />
 
         <TextView
-            android:textColor="#fff"
+            android:textColor="#C6FFFFFF"
             android:id="@+id/eventAttendee"
+            android:padding="10dp"
             android:layout_width="0dp"
             android:layout_weight="7"
+            android:textSize="15dp"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
@@ -86,6 +110,7 @@
         android:layout_width="match_parent"
         android:weightSum="10"
         android:padding="5dp"
+        android:background="#92353535"
         android:orientation="horizontal"
         android:layout_height="wrap_content">
 
@@ -93,14 +118,18 @@
             android:id="@+id/eventLocationLabel"
             android:layout_width="0dp"
             android:layout_weight="3"
-            android:textColor="#fff"
+            android:padding="10dp"
+            android:textColor="#C6FFFFFF"
+            android:textSize="15dp"
             android:text="@string/eventLocation"
             android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/eventLocation"
             android:layout_width="0dp"
-            android:textColor="#fff"
+            android:textColor="#C6FFFFFF"
+            android:padding="10dp"
+            android:textSize="15dp"
             android:layout_weight="7"
             android:layout_height="wrap_content" />
 
@@ -110,22 +139,28 @@
         android:layout_width="match_parent"
         android:weightSum="10"
         android:padding="5dp"
+        android:background="#92353535"
         android:orientation="horizontal"
+        android:outlineAmbientShadowColor="#92353535"
         android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/eventStartLabel"
             android:layout_width="0dp"
+            android:padding="10dp"
             android:layout_weight="3"
-            android:textColor="#fff"
+            android:textColor="#C6FFFFFF"
+            android:textSize="15dp"
             android:text="@string/eventStart"
             android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/eventStart"
+            android:padding="10dp"
             android:layout_width="0dp"
             android:layout_weight="7"
-            android:textColor="#fff"
+            android:textColor="#C6FFFFFF"
+            android:textSize="15dp"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
@@ -134,23 +169,28 @@
         android:layout_width="match_parent"
         android:weightSum="10"
         android:padding="5dp"
-
+        android:background="#92353535"
         android:orientation="horizontal"
+        android:outlineAmbientShadowColor="#92353535"
         android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/eventEndLabel"
             android:layout_width="0dp"
-            android:textColor="#fff"
+            android:textColor="#C6FFFFFF"
             android:layout_weight="3"
+            android:textSize="15dp"
+            android:padding="10dp"
             android:text="@string/eventEnd"
             android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/eventEnd"
             android:layout_width="0dp"
+            android:padding="10dp"
             android:layout_weight="7"
-            android:textColor="#fff"
+            android:textSize="15dp"
+            android:textColor="#C6FFFFFF"
             android:layout_height="wrap_content" />
 
     </LinearLayout>

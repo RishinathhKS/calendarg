@@ -3,28 +3,54 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#E1050505"
     android:layout_height="match_parent"
     tools:context=".parsed_calendar"
-    android:orientation="vertical">
-    <Button
-        android:layout_width="wrap_content"
+    android:orientation="vertical"
+    >
+    <LinearLayout
+        android:padding="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="3dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="sync with google calendar"
-        android:onClick="sync"></Button>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="db"
-        android:onClick="showdb"></Button>
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="297dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#2DFFFFFF"
+            android:gravity="center"
+            android:paddingRight="10dp"
+            android:onClick="sync"
+            android:text="sync with google calendar"
+            android:textColor="#CDCDCD"></Button>
+
+        <Button
+            android:layout_width="69dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:background="#656565"
+            android:onClick="showdb"
+            android:text="db"
+            android:textColor="#B2000000"></Button>
+    </LinearLayout>
+
 
     <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginRight="11dp"
+        android:background="#1BFFFFFF"
         android:descendantFocusability="beforeDescendants"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"></ListView>
 
 </LinearLayout>

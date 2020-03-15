@@ -49,6 +49,9 @@ public class parsed_calendar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parsed_calendar);
+
+        getSupportActionBar().hide();
+
         lv=findViewById(R.id.lv);
         db = openOrCreateDatabase("StudentDB", Context.MODE_PRIVATE, null);
         db.execSQL("DROP TABLE IF EXISTS partable");
@@ -128,7 +131,7 @@ public class parsed_calendar extends AppCompatActivity {
                 //txt.setText(sb.toString());
             }
             ArrayAdapter ada = new ArrayAdapter(this,
-                    android.R.layout.simple_list_item_1,
+                    R.layout.custom_simple_list_item_1,
                     categoryList);
             lv.setAdapter(ada);
             addtodatabase(val);
