@@ -43,12 +43,14 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation 'com.android.support:multidex:1.0.3'
     androidTestImplementation 'androidx.test:runner:1.1.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test:rules:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0', {
         exclude group: 'com.google.code.findbugs', module: 'jsr305'
     }
     implementation 'com.google.android.gms:play-services-auth:9.0.2'
     implementation 'pub.devrel:easypermissions:0.1.5'
-    compile('com.google.api-client:google-api-client-android:1.22.0') {
+    implementation('com.google.api-client:google-api-client-android:1.22.0') {
         exclude group: 'org.apache.httpcomponents'
         exclude group: 'com.google.code.findbugs', module: 'jsr305'
     }

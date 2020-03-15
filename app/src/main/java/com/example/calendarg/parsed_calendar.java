@@ -44,6 +44,8 @@ public class parsed_calendar extends AppCompatActivity {
     ListView lv;
     public String[][] val;
     SQLiteDatabase db;
+    InputStream inputStream;
+    XSSFWorkbook workbook;
     public ArrayList categoryList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,10 +58,12 @@ public class parsed_calendar extends AppCompatActivity {
         db = openOrCreateDatabase("StudentDB", Context.MODE_PRIVATE, null);
         db.execSQL("DROP TABLE IF EXISTS partable");
         db.execSQL("CREATE TABLE IF NOT EXISTS partable(dat date,day VARCHAR,HW VARCHAR,hrsemugpg VARCHAR,fug VARCHAR,integrated VARCHAR,fpg VARCHAR,specifications VARCHAR);");
-
+try{
         readExcelFileFromAssets();
+    }catch (Exception e){
+}
     }
-    public void readExcelFileFromAssets() {
+    public void readExcelFileFromAssets() throws IOException{
         String next[] = {};
         List<String[]> list = new ArrayList<String[]>();
         try {
@@ -70,7 +74,7 @@ public class parsed_calendar extends AppCompatActivity {
 
             String yourFilePath = Environment.getExternalStorageDirectory() + "/" + "Download" + "/" + name;
             File filename = new File(yourFilePath);
-            FileInputStream fis = new FileInputStream(filename);
+           // FileInputStream fis = new FileInputStream(filename);
 //            File notes = new File(filePath); //getting the notes dir
 //            List<String> lines = new ArrayList<>();
 //
@@ -80,8 +84,8 @@ public class parsed_calendar extends AppCompatActivity {
 
 
 
-            InputStream inputStream = new FileInputStream(filename);
-            XSSFWorkbook workbook = new XSSFWorkbook(inputStream);
+            inputStream = new FileInputStream(filename);
+            workbook = new XSSFWorkbook(inputStream);
             XSSFSheet sheet = workbook.getSheetAt(0);
             int rowsCount = sheet.getPhysicalNumberOfRows();
             FormulaEvaluator formulaEvaluator = workbook.getCreationHelper().createFormulaEvaluator();
@@ -100,7 +104,7 @@ public class parsed_calendar extends AppCompatActivity {
                     String value = getCellAsString(row, c, formulaEvaluator);
                     String cellInfo = "r:" + r + "; c:" + c + "; v:" + value;
                     //Log.d(TAG, "readExcelData: Data from row: " + cellInfo);
-                    if (value == "") {
+                    if (value.equals("")) {
                         value = " ";
                     }
                     if(ismon(value) ) {
@@ -136,8 +140,13 @@ public class parsed_calendar extends AppCompatActivity {
             lv.setAdapter(ada);
             addtodatabase(val);
 
+
         } catch (Exception e) {
             e.printStackTrace();
+        }finally {
+
+            inputStream.close();
+            workbook.close();
         }
     }
     public void showMessage(String title, String message){
@@ -227,7 +236,7 @@ public class parsed_calendar extends AppCompatActivity {
     }
 
     public boolean ismon(String cell) {
-        if(cell==" ")
+        if(cell.equals(" "))
             return false;
         if(cell.length()<3)
             return false;

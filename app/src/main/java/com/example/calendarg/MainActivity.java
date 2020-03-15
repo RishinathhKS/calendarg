@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
     static final int REQUEST_AUTHORIZATION = 1001;
     static final int REQUEST_GOOGLE_PLAY_SERVICES = 1002;
     static final int REQUEST_PERMISSION_GET_ACCOUNTS = 1003;
-
+    SQLiteDatabase db;
 
     private static final String PREF_ACCOUNT_NAME = "accountName";
     private static final String[] SCOPES = { CalendarScopes.CALENDAR_READONLY, CalendarScopes.CALENDAR };
@@ -591,7 +591,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         try {
             //Log.d("mainactivity",""+"flag"+flag+"flag1"+flag1);
             //if(flag==false && flag1==true) {
-                SQLiteDatabase db;
+
                 db=openOrCreateDatabase("StudentDB", Context.MODE_PRIVATE, null);
                 Cursor c = db.rawQuery("SELECT * FROM partable WHERE dat BETWEEN '"+stdate+"' AND '"+endate+"'" , null);
                 while (c.moveToNext() && c.getString(0)!=null)
@@ -606,7 +606,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
                         DateTime end = new DateTime(enddate);
                         String des="";
                         for(int i=2;i<=7;i++) {
-                            if (c.getString(i).trim() == "")
+                            if (c.getString(i).trim().equals(""))
                                 des = c.getString(i);
                             else
                                 des = c.getString(i) + heading[i];
@@ -629,6 +629,9 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
             //}
         }catch (Exception e){
             Toast.makeText(this,e.toString(),Toast.LENGTH_SHORT).show();
+        }
+        finally {
+            db.close();
         }
     }
 
