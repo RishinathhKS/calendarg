@@ -8,5 +8,11 @@
         android:orderInCategory="100"
         android:title="SYNC EVENTS"
         app:showAsAction="never" />
+    '
+    <item
+        android:id="@+id/help_guide"
+        android:orderInCategory="100"
+        android:title="USERGUIDE"
+        app:showAsAction="never" />
 
 </menu>

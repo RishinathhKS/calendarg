@@ -208,10 +208,13 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
                 startActivity(inte);break;
 
             case R.id.parsed_doc:
-
                 Intent i = new Intent(this,
                         parsed_calendar.class);
-                startActivityForResult(i,MYREQUEST);
+                startActivityForResult(i,MYREQUEST);break;
+
+            case R.id.help_guide:
+                Intent ih = new Intent(this, user_guide.class);
+                startActivity(ih);break;
         }
         return true;
     }

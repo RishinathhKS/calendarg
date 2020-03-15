@@ -42,17 +42,17 @@ public class Parsed_CalendarTest {
     @Test
     public void ismonpositive() {
         parsed_calendar obj = new parsed_calendar();
-        Boolean temp = obj.ismon("january");
+        Boolean temp = obj.ismon("january-2021");
         assertEquals("Test Case Failed",Boolean.TRUE, temp);
-        Boolean temp1 = obj.ismon("MAR");
+        Boolean temp1 = obj.ismon("february-2015");
         assertEquals("Test Case Failed",Boolean.TRUE, temp1);
-        Boolean temp2 = obj.ismon("decem");
+        Boolean temp2 = obj.ismon("march-2022");
         assertEquals("Test Case Failed",Boolean.TRUE, temp2);
-        Boolean temp3 = obj.ismon("Feb");
+        Boolean temp3 = obj.ismon("april-2035");
         assertEquals("Test Case Failed",Boolean.TRUE, temp3);
-        Boolean temp4 = obj.ismon("APRil");
+        Boolean temp4 = obj.ismon("may-2016");
         assertEquals("Test Case Failed",Boolean.TRUE, temp4);
-        Boolean temp5 = obj.ismon("DeCeMb");
+        Boolean temp5 = obj.ismon("june-2019");
         assertEquals("Test Case Failed",Boolean.TRUE, temp4);
 
 
@@ -77,7 +77,7 @@ public class Parsed_CalendarTest {
     public void monthvalpositive() {
         parsed_calendar obj = new parsed_calendar();
         String temp = obj.monthval("march");
-        assertEquals("Test Case Failed","-03", temp);
+        assertEquals("Test Case Failed","-03-", temp);
         String temp1 = obj.monthval("november");
         assertEquals("Test Case Failed","-11-", temp1);
     }
