@@ -116,12 +116,15 @@ public class upload extends AppCompatActivity implements
     }
 
     public void callparsing(String pars){
+        if(!(parse.toLowerCase().contains("academic_calendar") &&parse.toLowerCase().contains(".xlsx") ))
+            Toast.makeText(this,"Invalid Document",Toast.LENGTH_LONG).show();
+        else{
         SharedPreferences sp = getSharedPreferences
                 ("mycredentials", Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = sp.edit();
         edit.putString("name",pars);
         edit.commit();
         Intent j = new Intent(this, parsed_calendar.class);
-        startActivity(j);
+        startActivity(j);}
     }
 }

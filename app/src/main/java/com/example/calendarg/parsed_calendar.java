@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.apache.commons.io.comparator.LastModifiedFileComparator;
 import org.apache.commons.io.filefilter.FileFileFilter;
@@ -92,12 +93,17 @@ try{
             StringBuilder sb = new StringBuilder();
             categoryList = new ArrayList();
             val = new String[2000][100];
+
             String curmon = " ", curval = " ";
             //outter loop, loops through rows
             for (int r = 0; r < rowsCount; r++) {
                 Row row = sheet.getRow(r);
                 int cellsCount = row.getPhysicalNumberOfCells();
                 String st = "";
+                String check = getCellAsString(sheet.getRow(0), 0, formulaEvaluator);
+                if(!(check.toLowerCase().contains("academic calendar"))){
+                    Toast.makeText(this,"Invalid Document",Toast.LENGTH_LONG).show();
+                    return;}
                 //inner loop, loops through columns
                 for (int c = 0; c < cellsCount; c++) {
                     //handles if there are to many columns on the excel sheet.
