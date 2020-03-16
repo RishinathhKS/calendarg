@@ -13,7 +13,7 @@
         android:id="@+id/linearLayout2"
         android:layout_width="391dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="15dp"
         android:background="#11C1C0C0"
         android:gravity="center_vertical|center_horizontal"
         android:orientation="vertical"
@@ -70,7 +70,7 @@
         android:gravity="center_vertical|center_horizontal"
         android:orientation="vertical"
         android:outlineAmbientShadowColor="#9E9C9C9C"
-        android:padding="20dp"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -100,7 +100,7 @@
 
             <DatePicker
                 android:id="@+id/endDat"
-                android:layout_width="match_parent"
+                android:layout_width="369dp"
                 android:layout_height="wrap_content"
                 android:background="#9E535353"
                 android:calendarTextColor="#C8B1B1B1"
@@ -119,13 +119,14 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="#1E4A4A4A"
-        android:outlineAmbientShadowColor="#9A5C5C5C"
         android:onClick="syncnow"
+        android:outlineAmbientShadowColor="#9A5C5C5C"
         android:text="SYNC NOW"
         android:textColor="#A8FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.464"></Button>
+        app:layout_constraintVertical_bias="0.164"></Button>
 </androidx.constraintlayout.widget.ConstraintLayout>
